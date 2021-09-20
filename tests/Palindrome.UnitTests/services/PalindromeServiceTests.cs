@@ -41,5 +41,16 @@ namespace Palindrome.UnitTests.services
 
             Assert.False(sut.CanFormPalindrome(input));
         }
+
+        [Theory()]
+        [InlineData("   ")]
+        [InlineData("")]
+        [InlineData(null)]
+        public void GivenAnEmptyString_ReturnsFalse(string input)
+        {
+            var sut = new PalindromeService();
+
+            Assert.False(sut.CanFormPalindrome(input));
+        }
     }
 }

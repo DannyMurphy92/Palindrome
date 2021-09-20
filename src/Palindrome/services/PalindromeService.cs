@@ -14,6 +14,11 @@ namespace Palindrome.services
     {
         public bool CanFormPalindrome(string input)
         {
+            if(string.IsNullOrWhiteSpace(input))
+            {
+                return false;
+            }
+
             var characterDictionary = new Dictionary<char, int>();
 
             var characters = input.ToLower().Replace(" ", "").ToCharArray();

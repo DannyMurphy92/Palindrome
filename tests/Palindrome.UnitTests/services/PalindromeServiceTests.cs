@@ -13,11 +13,32 @@ namespace Palindrome.UnitTests.services
         [Theory]
         [InlineData("racecar")]
         [InlineData("carrace")]
+        [InlineData("caRraCe")]
         public void GivenAPalindromableStringWithNoWhitespace_CorrectlyIdentifiesAsPalindrome(string input)
         {
             var sut = new PalindromeService();
 
             Assert.True(sut.CanFormPalindrome(input));
+        }
+
+        [Theory]
+        [InlineData(" carrace ")]
+        [InlineData(" caRraCe")]
+        public void GivenAPalindromableStringWithWhitespace_CorrectlyIdentifiesAsPalindromeIgnoringWhitespace(string input)
+        {
+            var sut = new PalindromeService();
+
+            Assert.True(sut.CanFormPalindrome(input));
+        }
+
+        [Theory]
+        [InlineData("palindrome")]
+        [InlineData("dromepal")]
+        public void GivenANonPalindromableString_CorrectlyIdentifiesAsNotPalindromable(string input)
+        {
+            var sut = new PalindromeService();
+
+            Assert.False(sut.CanFormPalindrome(input));
         }
     }
 }

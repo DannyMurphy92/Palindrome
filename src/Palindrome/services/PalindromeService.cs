@@ -16,7 +16,7 @@ namespace Palindrome.services
         {
             var characterDictionary = new Dictionary<char, int>();
 
-            var characters = input.ToCharArray();
+            var characters = input.ToLower().Replace(" ", "").ToCharArray();
 
             for(int i = 0; i < characters.Length; i++)
             {

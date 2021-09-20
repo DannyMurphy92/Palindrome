@@ -14,6 +14,7 @@ namespace Palindrome.UnitTests.services
         [InlineData("racecar")]
         [InlineData("carrace")]
         [InlineData("caRraCe")]
+        [InlineData(".mama..")]
         public void GivenAPalindromableStringWithNoWhitespace_CorrectlyIdentifiesAsPalindrome(string input)
         {
             var sut = new PalindromeService();
